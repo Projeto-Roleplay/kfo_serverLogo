@@ -25,6 +25,8 @@ $(function(){
 
 
                 } else if (item.position == 'off') {
+                
+                } else if (item.position == 'on') {
 
  
                 }

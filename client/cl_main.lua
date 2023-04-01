@@ -5,6 +5,7 @@ local possiblePositions = {
     ['right']  = true,
     ['center'] = true,
     ['off']    = true,
+    ['on']     = true,
 }
 
 RegisterCommand('logo', function(source, args)
