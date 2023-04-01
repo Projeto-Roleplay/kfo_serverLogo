@@ -1,17 +1,29 @@
 RedEM = exports["redem_roleplay"]:RedEM()
-local display = false
+
+local possiblePositions = {
+    ['left']   = true,
+    ['right']  = true,
+    ['center'] = true,
+    ['off']    = true,
+}
 
 RegisterCommand('logo', function(source, args)
-    if args[1] then
+    if args[1] and args[1] ~= '' then
         local pos = string.lower(args[1])
-
-        if pos ~= '' then
             
+        if possiblePositions[pos] then
+            changeDisplay(pos)
+
+        else
+            TriggerEvent("redem_roleplay:Tip", 'Invalid position inserted', 5000)
+
         end
 
     else
-        TriggerEvent("redem_roleplay:Tip", 'Invalid position inserted', 5000)
+        TriggerEvent("redem_roleplay:Tip", 'Use /logo [position]', 5000)
+
     end
+
 end)
 
 AddEventHandler('onResourceStart', function(resource)
@@ -21,7 +33,9 @@ AddEventHandler('onResourceStart', function(resource)
             type = "ui",
             display = true
         })
+
     end
+
 end)
 
 AddEventHandler('onResourceStop', function(resource)
@@ -30,5 +44,15 @@ AddEventHandler('onResourceStop', function(resource)
             type = "ui",
             display = false
         })
+
     end
+
 end)
+
+function changeDisplay(pos)
+    SendNUIMessage({
+        type = "pos",
+        position = pos
+    })
+
+end
