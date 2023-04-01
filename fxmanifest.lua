@@ -10,10 +10,6 @@ client_scripts {
     'client/cl_*.lua',
 } 
 
-shared_scripts{
-    'shared/Config.lua'
-}
-
 ui_page "client/nui/index.html"
 
 files {
