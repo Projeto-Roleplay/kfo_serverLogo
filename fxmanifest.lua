@@ -14,5 +14,5 @@ ui_page "client/nui/index.html"
 
 files {
     'client/nui/*',
-    'client/nui/shared/****',
+    'client/nui/shared/*',
 }
