@@ -10,11 +10,6 @@ client_scripts {
     'client/cl_*.lua',
 } 
 
-server_scripts {
-    '@oxmysql/lib/MySQL.lua',
-    'server/sv_*.lua',
-}
-
 shared_scripts{
     'shared/Config.lua'
 }
