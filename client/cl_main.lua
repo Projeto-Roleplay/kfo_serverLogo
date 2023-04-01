@@ -29,11 +29,15 @@ end)
 
 AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then
-        addChatSuggestion()
-        SendNUIMessage({
-            type = "ui",
-            display = true
-        })
+        CreateThread(function()
+            Wait(300)
+            addChatSuggestion()
+            SendNUIMessage({
+                type = "ui",
+                display = true
+            })
+
+        end)
 
     end
 
@@ -41,11 +45,15 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-        SendNUIMessage({
-            type = "ui",
-            display = false
-        })
+        CreateThread(function()
+            Wait(300)
+            SendNUIMessage({
+                type = "ui",
+                display = false
+            })
 
+        end)
+        
     end
 
 end)
